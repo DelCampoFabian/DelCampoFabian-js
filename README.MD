@@ -1,0 +1,1 @@
+La idea del programa es mostrar las categorias de la tienda y pedirle al usuario cuantos productos quiere. Se muestran 5 opciones y dependiendo la cantidad de productos que ingreso el usuario, se van guardando en un arreglo las opciones que eligio.
