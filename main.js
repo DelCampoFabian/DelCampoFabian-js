@@ -1,4 +1,3 @@
-alert ("Bienvenido")
 //CREACION DE OBJETOS
 class Producto {
     constructor (nombre,tipo,precio,cantidad){
@@ -10,38 +9,59 @@ class Producto {
 }
 // DECLARACION DE OBJETOS
 //INDUMENTARIA
-const INDUMENTARIA1 =new Producto ("Conjunto Nike Hombre", "1 al 6", 12000, 5) 
-const INDUMENTARIA2 =new Producto ("Conjunto Nike Mujer", "1 al 6", 12000, 10) 
-const INDUMENTARIA3 =new Producto ("Zapatillas Hombre", "38 al 43", 15000, 5) 
-const INDUMENTARIA4 =new Producto ("Zapatillas Mujer", "34 al 40", 12000, 5) 
-const INDUMENTARIA5 =new Producto ("Camiseta Boca Juniors", "1 al 6", 7000, 12) 
+const INDUMENTARIA1 =new Producto ("Conjunto Nike Hombre", "1 al 6", 12000, 1) 
+const INDUMENTARIA2 =new Producto ("Conjunto Nike Mujer", "1 al 6", 12000, 1) 
+const INDUMENTARIA3 =new Producto ("Zapatillas Hombre", "38 al 43", 15000, 1) 
+const INDUMENTARIA4 =new Producto ("Zapatillas Mujer", "34 al 40", 12000, 1) 
+const INDUMENTARIA5 =new Producto ("Camiseta Boca Juniors", "1 al 6", 7000, 1) 
 //ACCESORIOS
-const ACCESORIOS1 = new Producto ("Mancuernas", "10kg", 7500, 10) 
-const ACCESORIOS2 = new Producto ("Barra", "Olimpica", 3500, 5) 
-const ACCESORIOS3 = new Producto ("Banco", "Inclinado", 15500, 8) 
-const ACCESORIOS4 = new Producto ("Discos", "5kg", 2500, 20) 
-const ACCESORIOS5 = new Producto ("Pesas", "12.5kg", 4000, 10) 
+const ACCESORIOS1 = new Producto ("Mancuernas", "10kg", 7500, 1) 
+const ACCESORIOS2 = new Producto ("Barra", "Olimpica", 3500, 1) 
+const ACCESORIOS3 = new Producto ("Banco", "Inclinado", 15500, 1) 
+const ACCESORIOS4 = new Producto ("Discos", "5kg", 2500, 1) 
+const ACCESORIOS5 = new Producto ("Pesas", "12.5kg", 4000, 1) 
 //SNACKS
-const SNACKS1 = new Producto ("Frutos Secos", "1kg", 1000, 20) 
-const SNACKS2 = new Producto ("Cereal Mix", "200gr", 250, 40) 
-const SNACKS3 = new Producto ("Galletas", "500gr", 300, 20) 
-const SNACKS4 = new Producto ("Barritas", "50gr", 120, 80) 
-const SNACKS5 = new Producto ("Almendras", "1kg", 1000, 20) 
+const SNACKS1 = new Producto ("Frutos Secos", "1kg", 1000, 1) 
+const SNACKS2 = new Producto ("Cereal Mix", "200gr", 250, 1) 
+const SNACKS3 = new Producto ("Galletas", "500gr", 300, 1) 
+const SNACKS4 = new Producto ("Barritas", "50gr", 120, 1) 
+const SNACKS5 = new Producto ("Almendras", "1kg", 1000, 1) 
 //SUPLEMENTACION
-const SUPLEMENTOS1 = new Producto ("Proteina Star Nutrition", "1kg", 2900, 20) 
-const SUPLEMENTOS2 = new Producto ("Proteina Hardcore", "1kg", 1200, 50) 
-const SUPLEMENTOS3 = new Producto ("Creatina Star Nutrition", "1kg", 1500, 15) 
-const SUPLEMENTOS4 = new Producto ("Creatina Hardcore", "1kg", 1000, 30) 
-const SUPLEMENTOS5 = new Producto ("BCAA  Star Nutrition", "1kg", 3900, 20) 
-
+const SUPLEMENTOS1 = new Producto ("Proteina Star Nutrition", "1kg", 2900, 1) 
+const SUPLEMENTOS2 = new Producto ("Proteina Hardcore", "1kg", 1200, 1) 
+const SUPLEMENTOS3 = new Producto ("Creatina Star Nutrition", "1kg", 1500, 1) 
+const SUPLEMENTOS4 = new Producto ("Creatina Hardcore", "1kg", 1000, 1) 
+const SUPLEMENTOS5 = new Producto ("BCAA  Star Nutrition", "1kg", 3900, 1) 
 
 
 //VARIABLES
 let cantidadProductos
 let productos = []
-let total 
+
 let ingresar
 
+let registroNombre
+let registroTipo
+let registroPrecio
+let registroCantidad
+let registrarTotal
+
+let textoNombre
+let textoTipo
+let textoPrecio
+let textoCantidad
+let textoTotal
+let total 
+
+
+function registrarHtml (){
+   registroNombre = document.getElementById("registro-nombre");
+   registroTipo = document.getElementById("registro-tipo");
+   registroPrecio = document.getElementById("registro-precio");
+   registroCantidad = document.getElementById("registro-cantidad");
+   registrarTotal= document.getElementById ("registro-total");
+
+}
 
 function ingresarTienda (){
    ingresar = prompt("Desea ingresar a la tienda?\n -si \n -no")
@@ -52,6 +72,35 @@ function ingresarTienda (){
    }else {
       alert ("Seleccion invalida. Recargue la página")
    }
+}
+
+function registrarNombreProducto (){
+   productos.forEach((producto) => {
+      textoNombre = document.createElement("li")
+      textoNombre.innerText = `${producto.nombre}`
+      registroNombre.append(textoNombre)
+   })
+}
+function registrarTipoProducto (){
+   productos.forEach((producto) => {
+      textoTipo = document.createElement("li")
+      textoTipo.innerText = `${producto.tipo}`
+      registroTipo.append(textoTipo)
+   })
+}
+function registrarPrecioProducto (){
+   productos.forEach((producto) => {
+      textoPrecio = document.createElement("li")
+      textoPrecio.innerText = `$${producto.precio}`
+      registroPrecio.append(textoPrecio)
+   })
+}
+function registrarCantidadProducto (){
+   productos.forEach((producto) => {
+      textoCantidad = document.createElement("li")
+      textoCantidad.innerText = `${producto.cantidad}`
+      registroCantidad.append(textoCantidad)
+   })
 }
 
 //AGREGAR PRODUCTOS
@@ -136,22 +185,31 @@ function AgregarProductos () {
              }
          }
     }
+   total = productos.reduce ((acumulador,elemento) => acumulador + elemento.precio, 0)    
+}  
 
-    console.log(productos)
-
-   total = productos.reduce ((acumulador,elemento) => acumulador + elemento.precio, 0)
-    if(cantidadProductos <= productos.length ){
-      alert ("El total a pagar es: $" + total)
-      alert ("Muchas Gracias por su compra.\nPor favor recargue la página si desea hacer otra compra.")
-    }
-    
+function mostrarTotal(){
+   if( (total != undefined) && (cantidadProductos <= productos.length) ){
+      textoTotal = document.createElement("li")
+      textoTotal.innerText = `$${total}`
+      registrarTotal.append(textoTotal);
    }
-
+}
+ 
+   
 function main (){
    ingresarTienda()
+   registrarHtml ()
+   registrarNombreProducto ()
+   registrarTipoProducto ()
+   registrarPrecioProducto ()
+   registrarCantidadProducto ()
+   mostrarTotal()
 }
 
 main()
+
+
 
 
 
